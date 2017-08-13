@@ -42,11 +42,9 @@ func determineListenAddress() (string, error) {
 func GetWeatherReport(w http.ResponseWriter, req *http.Request) {
 	if origin := req.Header.Get("Origin"); origin != "" {
 		w.Header().Set("Access-Control-Allow-Origin", origin)
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(weather1)
-		return
 	}
-	json.NewEncoder(w).Encode(WeatherReport{})
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(weather1)
 }
 
 func main() {
