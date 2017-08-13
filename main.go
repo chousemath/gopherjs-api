@@ -27,8 +27,8 @@ var weather1 = Weather{
 	Wind:            2.3,
 }
 
+// This func figures out what address to listen on for traffic
 func determineListenAddress() (string, error) {
-	// determine which address to listen for traffic
 	port := os.Getenv("PORT")
 	if port == "" {
 		return "", fmt.Errorf("$PORT not set")
@@ -42,9 +42,8 @@ func GetWeather(w http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	// attempt to get the address from Heroku
+	// The below four lines are used for deployment on Heroku
 	addr, err := determineListenAddress()
-	// if there is an error getting the address, panic
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,9 +51,9 @@ func main() {
 	router := mux.NewRouter()
 	// set up routes
 	router.HandleFunc("/weather", GetWeather).Methods("GET")
-	// spin up a server, panic if there is an error starting the server
-	log.Printf("Listening on PORT:%s...", addr)
-	if err := http.ListenAndServe(":3000", router); err != nil {
+	// The below four lines are used for deployment on Heroku
+	log.Printf("Listening on %s...\n", addr)
+	if err := http.ListenAndServe(addr, router); err != nil {
 		panic(err)
 	}
 }
