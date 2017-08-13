@@ -30,30 +30,30 @@ var weatherMonday = WeatherReport{
 	ID:              1,
 	Day:             "Monday",
 	TemperatureLow:  10.5,
-	TemperatureHigh: 42.1,
+	TemperatureHigh: 52.1,
 	Precipitation:   32.1,
-	Humidity:        10.4,
-	Wind:            2.3,
+	Humidity:        11.4,
+	Wind:            23.3,
 }
 
 var weatherTuesday = WeatherReport{
 	ID:              2,
 	Day:             "Tuesday",
-	TemperatureLow:  10.5,
-	TemperatureHigh: 42.1,
-	Precipitation:   32.1,
-	Humidity:        10.4,
-	Wind:            2.3,
+	TemperatureLow:  40.5,
+	TemperatureHigh: 28.1,
+	Precipitation:   92.1,
+	Humidity:        12.4,
+	Wind:            52.3,
 }
 
 var weatherWednesday = WeatherReport{
 	ID:              3,
 	Day:             "Wednesday",
-	TemperatureLow:  10.5,
-	TemperatureHigh: 42.1,
-	Precipitation:   32.1,
-	Humidity:        10.4,
-	Wind:            2.3,
+	TemperatureLow:  37.5,
+	TemperatureHigh: 420.1,
+	Precipitation:   19.1,
+	Humidity:        77.4,
+	Wind:            55.3,
 }
 
 var weatherReports = WeatherReports{
