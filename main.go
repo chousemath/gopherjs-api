@@ -56,10 +56,12 @@ var weatherWednesday = WeatherReport{
 	Wind:            2.3,
 }
 
-var weatherReports = []WeatherReport{
-	weatherMonday,
-	weatherTuesday,
-	weatherWednesday,
+var weatherReports = WeatherReports{
+	Reports: []WeatherReport{
+		weatherMonday,
+		weatherTuesday,
+		weatherWednesday,
+	},
 }
 
 // This func figures out what address to listen on for traffic
