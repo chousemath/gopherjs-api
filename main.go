@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// Weather represents a typical weather report
+// WeatherReport represents a typical weather report
 type WeatherReport struct {
 	ID              int32   `json:"id,omitempty"`
 	TemperatureLow  float32 `json:"temperatureLow,omitempty"`
@@ -38,7 +38,7 @@ func determineListenAddress() (string, error) {
 	return ":" + port, nil
 }
 
-// GetWeather returns the current weather forecast
+// GetWeatherReport returns the current weather forecast
 func GetWeatherReport(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(weather1)
@@ -53,7 +53,7 @@ func main() {
 	// set up the router
 	router := mux.NewRouter()
 	// set up routes
-	router.HandleFunc("/weather", GetWeatherReport).Methods("GET")
+	router.HandleFunc("/weatherreport", GetWeatherReport).Methods("GET")
 	// The below four lines are used for deployment on Heroku
 	log.Printf("Listening on %s...\n", addr)
 	if err := http.ListenAndServe(addr, router); err != nil {
