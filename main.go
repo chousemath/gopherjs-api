@@ -21,6 +21,11 @@ type WeatherReport struct {
 	Wind            float32 `json:"wind,omitempty"`
 }
 
+// WeatherReports represents a typical weather report
+type WeatherReports struct {
+	Reports []WeatherReport `json:"reports,omitempty"`
+}
+
 var weatherMonday = WeatherReport{
 	ID:              1,
 	Day:             "Monday",
@@ -51,7 +56,11 @@ var weatherWednesday = WeatherReport{
 	Wind:            2.3,
 }
 
-var weatherReports []WeatherReport
+var weatherReports = []WeatherReport{
+	weatherMonday,
+	weatherTuesday,
+	weatherWednesday,
+}
 
 // This func figures out what address to listen on for traffic
 func determineListenAddress() (string, error) {
@@ -88,11 +97,6 @@ func main() {
 	}
 	// set up the router
 	router := mux.NewRouter()
-
-	// load some fake data
-	weatherReports = append(weatherReports, weatherMonday)
-	weatherReports = append(weatherReports, weatherTuesday)
-	weatherReports = append(weatherReports, weatherWednesday)
 
 	// set up routes
 	router.HandleFunc("/weatherreport", GetWeatherReport).Methods("GET")
