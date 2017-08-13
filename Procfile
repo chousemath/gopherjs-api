@@ -1,1 +1,1 @@
-“web: gopherjs-api”
+web: gopherjs-api
