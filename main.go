@@ -26,41 +26,71 @@ type WeatherReports struct {
 	Reports []WeatherReport `json:"reports,omitempty"`
 }
 
-var weatherMonday = WeatherReport{
-	ID:              1,
-	Day:             "Monday",
-	TemperatureLow:  10.5,
-	TemperatureHigh: 52.1,
-	Precipitation:   32.1,
-	Humidity:        11.4,
-	Wind:            23.3,
-}
-
-var weatherTuesday = WeatherReport{
-	ID:              2,
-	Day:             "Tuesday",
-	TemperatureLow:  40.5,
-	TemperatureHigh: 28.1,
-	Precipitation:   92.1,
-	Humidity:        12.4,
-	Wind:            52.3,
-}
-
-var weatherWednesday = WeatherReport{
-	ID:              3,
-	Day:             "Wednesday",
-	TemperatureLow:  37.5,
-	TemperatureHigh: 420.1,
-	Precipitation:   19.1,
-	Humidity:        77.4,
-	Wind:            55.3,
-}
-
 var weatherReports = WeatherReports{
 	Reports: []WeatherReport{
-		weatherMonday,
-		weatherTuesday,
-		weatherWednesday,
+		WeatherReport{
+			ID:              1,
+			Day:             "Monday",
+			TemperatureLow:  10.5,
+			TemperatureHigh: 52.1,
+			Precipitation:   32.1,
+			Humidity:        11.4,
+			Wind:            23.3,
+		},
+		WeatherReport{
+			ID:              2,
+			Day:             "Tuesday",
+			TemperatureLow:  40.5,
+			TemperatureHigh: 28.1,
+			Precipitation:   92.1,
+			Humidity:        12.4,
+			Wind:            52.3,
+		},
+		WeatherReport{
+			ID:              3,
+			Day:             "Wednesday",
+			TemperatureLow:  37.5,
+			TemperatureHigh: 420.1,
+			Precipitation:   19.1,
+			Humidity:        77.4,
+			Wind:            55.3,
+		},
+		WeatherReport{
+			ID:              4,
+			Day:             "Thursday",
+			TemperatureLow:  15.5,
+			TemperatureHigh: 76.1,
+			Precipitation:   43.1,
+			Humidity:        91.4,
+			Wind:            69.3,
+		},
+		WeatherReport{
+			ID:              5,
+			Day:             "Friday",
+			TemperatureLow:  1.5,
+			TemperatureHigh: 5.1,
+			Precipitation:   2.1,
+			Humidity:        1.4,
+			Wind:            3.3,
+		},
+		WeatherReport{
+			ID:              6,
+			Day:             "Saturday",
+			TemperatureLow:  102.5,
+			TemperatureHigh: 352.1,
+			Precipitation:   432.1,
+			Humidity:        711.4,
+			Wind:            823.3,
+		},
+		WeatherReport{
+			ID:              7,
+			Day:             "Sunday",
+			TemperatureLow:  90.5,
+			TemperatureHigh: 82.1,
+			Precipitation:   72.1,
+			Humidity:        61.4,
+			Wind:            53.3,
+		},
 	},
 }
 
@@ -79,7 +109,15 @@ func GetWeatherReport(w http.ResponseWriter, req *http.Request) {
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	}
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(weatherMonday)
+	json.NewEncoder(w).Encode(WeatherReport{
+		ID:              1,
+		Day:             "Monday",
+		TemperatureLow:  10.5,
+		TemperatureHigh: 52.1,
+		Precipitation:   32.1,
+		Humidity:        11.4,
+		Wind:            23.3,
+	})
 }
 
 // GetWeatherReports returns a bunch of fake weather reports
